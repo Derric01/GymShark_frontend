@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 // API Configuration
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? process.env.NEXT_PUBLIC_API_URL || 'https://gym-sharks-backend.onrender.com/api'
+  ? process.env.NEXT_PUBLIC_API_URL || 'https://gymshark-backend-sbqa.onrender.com/api'
   : 'http://localhost:5000/api';
 
 // Create axios instance
