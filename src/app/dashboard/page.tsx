@@ -10,6 +10,7 @@ import { FaDumbbell, FaAppleAlt, FaBrain, FaChartLine, FaUser, FaSignOutAlt, FaP
 import { useAuth } from '@/contexts/AuthContext';
 import { useFeaturedWorkouts, useRecommendedSupplements, useProgress } from '@/hooks/useApi';
 import { useRouter } from 'next/navigation';
+import StreakDisplay from '@/components/StreakDisplay';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -154,6 +155,17 @@ export default function DashboardPage() {
               </Card>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Streak Display */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mb-8"
+        >
+          <h2 className="text-2xl font-bold mb-4">Your Streaks 🔥</h2>
+          <StreakDisplay />
         </motion.div>
 
         {/* Quick Actions */}

@@ -258,6 +258,17 @@ export interface MembershipSubscriptionResponse {
 }
 
 // AI Types
+export interface AITip {
+  _id: string;
+  category: 'workout' | 'nutrition' | 'recovery' | 'motivation';
+  title: string;
+  content: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  tags: string[];
+  likes?: number;
+  createdAt?: string;
+}
+
 export interface AIRequest {
   fitnessGoal?: string;
   experience?: string;
@@ -278,6 +289,29 @@ export interface AIResponse {
   };
 }
 
+// Streak and Challenge Types
+export interface UserStreak {
+  type: 'workout' | 'login' | 'supplement' | 'progress';
+  currentStreak: number;
+  longestStreak: number;
+  lastActivity: string;
+}
+
+export interface Challenge {
+  _id: string;
+  title: string;
+  description: string;
+  type: 'daily' | 'weekly' | 'monthly';
+  target: number;
+  progress: number;
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+  reward?: string;
+  icon?: string;
+  category?: 'fitness' | 'nutrition' | 'lifestyle';
+}
+
 // API Response Types
 export interface ApiResponse<T = unknown> {
   success: boolean;
@@ -287,7 +321,7 @@ export interface ApiResponse<T = unknown> {
 }
 
 // Filter Types
-export type WorkoutCategory = 'Bodyweight' | 'HIIT' | 'Yoga' | 'Pilates' | 'Cardio' | 'Strength' | 'Flexibility' | 'Core';
+export type WorkoutCategory = 'Bodyweight' | 'HIIT' | 'Yoga' | 'Pilates' | 'Cardio' | 'Strength' | 'Flexibility' | 'Core' | 'Functional' | 'Recovery';
 export type WorkoutDifficulty = 'Beginner' | 'Intermediate' | 'Advanced';
 export type SupplementCategory = 'Protein' | 'Pre-Workout' | 'Post-Workout' | 'Vitamins' | 'Minerals' | 'Amino Acids' | 'Fat Burners' | 'Mass Gainers' | 'Recovery' | 'General Health';
 export type FitnessGoal = 'weight loss' | 'muscle gain' | 'maintenance';
