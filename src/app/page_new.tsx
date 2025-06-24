@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { FaDumbbell, FaAppleAlt, FaBrain, FaChartLine, FaUsers, FaStar } from 'react-icons/fa';
-import { useFeaturedWorkouts, useSupplements, useDiets, useHealthCheck } from '@/hooks/useApi';
+import { useFeaturedWorkouts, useHealthCheck } from '@/hooks/useApi';
 import { useAuth } from '@/contexts/AuthContext';
 
 const fadeInUp = {
@@ -26,8 +26,6 @@ const staggerContainer = {
 export default function HomePage() {
   const { isAuthenticated, user } = useAuth();
   const { data: featuredWorkouts, isLoading: workoutsLoading } = useFeaturedWorkouts();
-  const { data: supplements, isLoading: supplementsLoading } = useSupplements({ limit: 6 });
-  const { data: diets, isLoading: dietsLoading } = useDiets();
   const { data: healthCheck } = useHealthCheck();
 
   return (

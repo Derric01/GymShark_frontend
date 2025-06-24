@@ -9,10 +9,10 @@ interface WorkoutShareProps {
   workoutTitle: string;
   duration: number;
   calories: number;
-  difficulty: string;
+  difficulty?: string;
 }
 
-export default function WorkoutShare({ workoutTitle, duration, calories, difficulty }: WorkoutShareProps) {
+export default function WorkoutShare({ workoutTitle, duration, calories }: WorkoutShareProps) {
   const shareText = `💪 Just completed "${workoutTitle}" - ${duration} min, ${calories} cal burned! #GymSharks #FitnessGoals`;
   const appUrl = 'https://gym-shark-frontend.vercel.app';
 
@@ -26,11 +26,10 @@ export default function WorkoutShare({ workoutTitle, duration, calories, difficu
     window.open(url, '_blank');
   };
 
-  const copyToClipboard = async () => {
-    try {
+  const copyToClipboard = async () => {    try {
       await navigator.clipboard.writeText(`${shareText} ${appUrl}`);
       toast.success('Workout shared to clipboard! 📋');
-    } catch (err) {
+    } catch {
       toast.error('Failed to copy to clipboard');
     }
   };
@@ -42,11 +41,10 @@ export default function WorkoutShare({ workoutTitle, duration, calories, difficu
   };
 
   const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
+    if (navigator.share) {      try {
         await navigator.share(shareData);
         toast.success('Workout shared! 🎉');
-      } catch (err) {
+      } catch {
         // User cancelled sharing
       }
     } else {

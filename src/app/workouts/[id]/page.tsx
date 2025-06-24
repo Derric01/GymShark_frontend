@@ -276,12 +276,10 @@ export default function WorkoutDetailPage() {
                     <p className="text-sm text-gray-600">Exercises Done</p>
                   </div>
                 </div>                {/* Workout Share Component */}
-                <div className="mb-6">
-                  <WorkoutShare 
+                <div className="mb-6">                  <WorkoutShare 
                     workoutTitle={workout.title}
                     duration={Math.round(timer / 60)}
                     calories={calculateCaloriesBurned()}
-                    difficulty={workout.difficulty}
                   />
                 </div>
 
@@ -319,8 +317,7 @@ export default function WorkoutDetailPage() {
                       </p>
                     </div>
                   </div>
-                </CardHeader>                <CardContent>
-                  <div className="mb-6">
+                </CardHeader>                <CardContent>                  <div className="mb-6">
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
                         className="bg-blue-600 h-2 rounded-full transition-all duration-300"
