@@ -1455,3 +1455,58 @@ export const mockChallenges: Challenge[] = [
     category: 'lifestyle'
   }
 ];
+
+export const getMockAIResponse = (requestType: string) => {
+  const responses = {
+    workout: {
+      success: true,
+      data: {
+        recommendations: [
+          "Start with 3 sets of 10-12 reps for compound exercises",
+          "Focus on proper form over heavy weights",
+          "Include both push and pull movements in your routine"
+        ],
+        tips: [
+          "Warm up for 5-10 minutes before lifting",
+          "Rest 48-72 hours between training the same muscle groups",
+          "Track your progress to ensure consistent improvement"
+        ],
+        personalizedAdvice: "Based on your profile, I recommend starting with bodyweight exercises and gradually progressing to weighted movements."
+      }
+    },
+    nutrition: {
+      success: true,
+      data: {
+        recommendations: [
+          "Eat protein with every meal to support muscle growth",
+          "Include complex carbohydrates for sustained energy",
+          "Don't forget healthy fats for hormone production"
+        ],
+        tips: [
+          "Meal prep on weekends to stay consistent",
+          "Drink water before, during, and after meals",
+          "Listen to your hunger cues and eat mindfully"
+        ],
+        personalizedAdvice: "Focus on whole foods and aim for 0.8-1g of protein per pound of body weight."
+      }
+    },
+    general: {
+      success: true,
+      data: {
+        recommendations: [
+          "Consistency beats perfection in fitness",
+          "Get 7-9 hours of quality sleep each night",
+          "Stress management is crucial for results"
+        ],
+        tips: [
+          "Set realistic, achievable goals",
+          "Find activities you enjoy to stay motivated",
+          "Progress takes time - be patient with yourself"
+        ],
+        personalizedAdvice: "Focus on building sustainable habits rather than seeking quick fixes."
+      }
+    }
+  };
+
+  return responses[requestType as keyof typeof responses] || responses.general;
+};

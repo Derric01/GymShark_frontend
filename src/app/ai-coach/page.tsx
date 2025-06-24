@@ -48,11 +48,9 @@ export default function AICoachPage() {
     if (!workoutForm.fitnessGoal || !workoutForm.experience) {
       toast.error('Please fill in all required fields');
       return;
-    }
-
-    // Use mock data directly since AI endpoints don't exist yet
-    const mockData = getMockAIResponse('workout', workoutForm);
-    setMockResponse(mockData);
+    }    // Use mock data directly since AI endpoints don't exist yet
+    const mockData = getMockAIResponse('workout');
+    setMockResponse(mockData.data);
     setUseMockData(true);
     toast.success('Workout tips generated! (Demo data)');
   };  const handleNutritionSubmit = async (e: React.FormEvent) => {
@@ -60,17 +58,15 @@ export default function AICoachPage() {
     if (!nutritionForm.goal || !nutritionForm.age || !nutritionForm.gender || !nutritionForm.activityLevel) {
       toast.error('Please fill in all required fields');
       return;
-    }
-
-    // Use mock data directly since AI endpoints don't exist yet
-    const mockData = getMockAIResponse('nutrition', nutritionForm);
-    setMockResponse(mockData);
+    }    // Use mock data directly since AI endpoints don't exist yet
+    const mockData = getMockAIResponse('nutrition');
+    setMockResponse(mockData.data);
     setUseMockData(true);
     toast.success('Nutrition advice generated! (Demo data)');
   };  const handleGeneralTips = async () => {
     // Use mock data directly since AI endpoints don't exist yet
     const mockData = getMockAIResponse('general');
-    setMockResponse(mockData);
+    setMockResponse(mockData.data);
     setUseMockData(true);
     toast.success('General tips generated! (Demo data)');
   };
